@@ -1,0 +1,3 @@
+rootProject.name = 'AboutBall'
+
+include ':app'
