@@ -6,21 +6,14 @@
 
 import React, {Component} from "react";
 import {AppRegistry} from "react-native";
-import HomeScreen from "./app/HomeScreen";
-import ChatScreen from "./app/ChatScreen";
-import {StackNavigator} from "react-navigation";
+import Main from "./app/Main";
 
 export default class AboutBall extends Component {
     render() {
         return (
-            <HomeScreen/>
+            <Main/>
         );
     }
 }
 
-const SimpleApp = StackNavigator({
-    Home: {screen: HomeScreen},
-    Chat: {screen: ChatScreen},
-});
-
-AppRegistry.registerComponent('AboutBall', () => SimpleApp);
+AppRegistry.registerComponent('AboutBall', () => AboutBall);
