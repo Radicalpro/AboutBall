@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import React, {Component} from "react";
+import {StackNavigator} from "react-navigation";
+import HomePage from "./HomePage";
+import DetailScreen from "./DetailScreen";
 
 export default class HomeScreen extends Component {
 
@@ -9,22 +11,14 @@ export default class HomeScreen extends Component {
 
     render() {
         return (
-            <View style={styles.contain}>
-                <Text>Hello, Navigation!</Text>
-                <Button
-                    onPress={() => this.props.navigation.navigate('Detail', {user: 'ty'})}
-                    title="TO Detail"
-                />
-            </View>
+            <Navigator/>
         )
     }
 }
 
-const styles = StyleSheet.create({
-    contain: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+const Navigator = StackNavigator(
+    {
+        Main: {screen: HomePage},
+        Detail: {screen: DetailScreen},
     }
-});
+);

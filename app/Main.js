@@ -1,8 +1,7 @@
 import React, {Component} from "react";
-import DetailScreen from "./DetailScreen";
 import HomeScreen from "./HomeScreen";
 import MyCenterScreen from "./MyCenterScreen";
-import {StackNavigator, TabNavigator} from "react-navigation";
+import {DrawerNavigator, TabNavigator} from "react-navigation";
 
 export default class Main extends Component {
 
@@ -12,7 +11,7 @@ export default class Main extends Component {
 
     render() {
         return (
-            <Navigator/>
+            <DrawerScreenNavigator/>
         )
     }
 }
@@ -24,9 +23,8 @@ const MainScreenNavigator = TabNavigator(
     }
 );
 
-const Navigator = StackNavigator(
+const DrawerScreenNavigator = DrawerNavigator(
     {
-        Main: {screen: MainScreenNavigator},
-        Detail: {screen: DetailScreen},
+        Drawer: {screen: MainScreenNavigator},
     }
 );
