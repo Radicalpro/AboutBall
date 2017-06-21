@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
-export default class HomeScreen extends Component {
+export default class MyCenterScreen extends Component {
 
     constructor(props) {
         super(props)
@@ -10,11 +10,7 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={styles.contain}>
-                <Text>Hello, Navigation!</Text>
-                <Button
-                    onPress={() => this.props.navigation.navigate('Detail', {user: 'ty'})}
-                    title="TO Detail"
-                />
+                <Text>MyCenterScreen!</Text>
             </View>
         )
     }

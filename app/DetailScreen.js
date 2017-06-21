@@ -1,17 +1,21 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-export default class ChatScreen extends Component {
+export default class DetailScreen extends Component {
 
-    static navigationOptions = ({navigation}) => ({
-        title: 'Welcome ChatScreen+' + `${navigation.state.params.user}`,
-    });
+    constructor(props) {
+        super(props)
+    }
+
+    static navigationOptions ={
+        title: 'Welcome DetailScreen',
+    };
 
     render() {
-        const {params} = this.props.navigation.state;
+        let name = this.props.navigation.state.params.user;
         return (
             <View style={styles.contain}>
-                <Text>Hello, {params.user}!</Text>
+                <Text>Hello, {name}!</Text>
             </View>
         )
     }
