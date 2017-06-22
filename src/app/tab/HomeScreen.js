@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {StackNavigator} from "react-navigation";
 import HomePage from "../home/HomePage";
 
 export default class HomeScreen extends Component {
@@ -15,10 +14,3 @@ export default class HomeScreen extends Component {
         )
     }
 }
-
-const Navigator = StackNavigator(
-    {
-        HomePage: {screen: HomePage},
-
-    }
-);
