@@ -16,6 +16,8 @@ export default class MyCenterScreen extends Component {
     }
 }
 
+
+
 const styles = StyleSheet.create({
     contain: {
         flex: 1,

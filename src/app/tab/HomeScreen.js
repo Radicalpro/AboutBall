@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {StackNavigator} from "react-navigation";
-import HomePage from "./HomePage";
-import DetailScreen from "./DetailScreen";
+import HomePage from "../home/HomePage";
+import DetailScreen from "../home/DetailScreen";
 
 export default class HomeScreen extends Component {
 
@@ -18,7 +18,7 @@ export default class HomeScreen extends Component {
 
 const Navigator = StackNavigator(
     {
-        Main: {screen: HomePage},
+        HomePage: {screen: HomePage},
         Detail: {screen: DetailScreen},
     }
 );
