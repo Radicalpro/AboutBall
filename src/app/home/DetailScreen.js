@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {Component} from "react";
+import {Button, StyleSheet, Text, View} from "react-native";
 
 export default class DetailScreen extends Component {
 
@@ -7,15 +7,15 @@ export default class DetailScreen extends Component {
         super(props)
     }
 
-    static navigationOptions ={
-        title: 'Welcome DetailScreen',
-    };
-
     render() {
         let name = this.props.navigation.state.params.user;
         return (
             <View style={styles.contain}>
                 <Text>Hello, {name}!</Text>
+                <Button
+                    onPress={() => this.props.navigation.goBack()}
+                    title="Go back"
+                />
             </View>
         )
     }

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import HomeScreen from "./tab/HomeScreen";
 import MyCenterScreen from "./tab/MyCenterScreen";
 import TabBarItem from "./component/TabBarItem";
+import DetailScreen from './home/DetailScreen';
 import color from "./component/color";
 import {DrawerNavigator, TabBarBottom, TabNavigator} from "react-navigation";
 
@@ -87,5 +88,6 @@ const Tab = TabNavigator(
 const DrawerScreenNavigator = DrawerNavigator(
     {
         DrawerHomePage: {screen: Tab},
+        Detail: {screen: DetailScreen},
     }
 );

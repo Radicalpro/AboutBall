@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {StackNavigator} from "react-navigation";
 import HomePage from "../home/HomePage";
-import DetailScreen from "../home/DetailScreen";
 
 export default class HomeScreen extends Component {
 
@@ -11,7 +10,8 @@ export default class HomeScreen extends Component {
 
     render() {
         return (
-            <Navigator/>
+            <HomePage navigation={this.props.navigation}/>
+            // <Navigator/>
         )
     }
 }
@@ -19,6 +19,6 @@ export default class HomeScreen extends Component {
 const Navigator = StackNavigator(
     {
         HomePage: {screen: HomePage},
-        Detail: {screen: DetailScreen},
+
     }
 );
