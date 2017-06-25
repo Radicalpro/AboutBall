@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import React, {Component} from "react";
+import color from "../component/color";
+import {Button, StyleSheet, Text, View} from "react-native";
 
 export default class HomePage extends Component {
 
@@ -26,5 +27,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: color.background,
     }
 });

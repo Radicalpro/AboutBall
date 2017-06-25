@@ -73,13 +73,13 @@ const Tab = TabNavigator(
             activeTintColor: color.theme,//活动标签的标签和图标颜色
             activeBackgroundColor: color.background,//活动选项卡的背景颜色
             inactiveTintColor: color.theme1,//非活动标签的标签和图标颜色
-            inactiveBackgroundColor: color.background1,//非活动标签的背景颜色
+            inactiveBackgroundColor: color.background,//非活动标签的背景颜色
             showLabel: true,//是否显示标签的标签，默认为true
             //style: {backgroundColor: 'blue',},//标签栏的样式对象
             labelStyle: {fontSize: 12,},//标签标签的样式对象
             tabStyle: {width: 100,},//标签栏的样式对象
             //android
-            scrollEnabled:true,//是否启用可滚动选项卡
+            scrollEnabled: true,//是否启用可滚动选项卡
         }
     }
 );
@@ -93,7 +93,17 @@ const DrawerScreenNavigator = DrawerNavigator(
 
 const Navigator = StackNavigator(
     {
-        HomePage: {screen: DrawerScreenNavigator},
+        HomePage: {
+            screen: DrawerScreenNavigator,
+            //屏幕导航选项
+            navigationOptions:{
+                //设置隐藏标题。HeaderProps null
+                header: null
+            },
+            cardStyle:{
+                backgroundColor: color.background,
+            }
+        },
         Detail: {screen: DetailScreen},
     }
 );
