@@ -1,20 +1,20 @@
 import React, {Component} from "react";
-import color from "../component/color";
 import {Button, StyleSheet, Text, View} from "react-native";
 
-export default class HomePage extends Component {
+export default class Detail extends Component {
 
     constructor(props) {
         super(props)
     }
 
     render() {
+        let name = this.props.navigation.state.params.user;
         return (
             <View style={styles.contain}>
-                <Text>Hello, Navigation!</Text>
+                <Text>Hello, {name}!</Text>
                 <Button
-                    onPress={() => this.props.navigation.navigate('Detail', {user: 'ty'})}
-                    title="TO Detail"
+                    onPress={() => this.props.navigation.goBack()}
+                    title="Go back"
                 />
             </View>
         )
@@ -27,6 +27,5 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: color.background,
     }
 });

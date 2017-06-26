@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import HomeScreen from "./tab/HomeScreen";
-import MyCenterScreen from "./tab/MyCenterScreen";
-import TabBarItem from "./component/TabBarItem";
-import DetailScreen from "./home/DetailScreen";
-import color from "./component/color";
+import HomeTab from "./tab/home/HomeTab";
+import MyCenterTab from "./tab/my/MyTab";
+import TabBarItem from "./tab/component/TabBarItem";
+import Detail from "./home/Detail";
+import color from "./Color";
 import {DrawerNavigator, StackNavigator, TabBarBottom, TabNavigator} from "react-navigation";
 
-export default class Main extends Component {
+export default class MainRoute extends Component {
 
     constructor() {
         super()
@@ -24,7 +24,7 @@ const Tab = TabNavigator(
     {
         Home: {
             //对应的屏幕
-            screen: HomeScreen,
+            screen: HomeTab,
             //用于屏幕的默认导航选项
             navigationOptions: ({navigation}) => ({
                 //选项卡名称
@@ -35,15 +35,15 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('../img/tabbar/homepage.png')}
-                        selectedImage={require('../img/tabbar/homepage_selected.png')}
+                        normalImage={require('./tab/home/image/homepage.png')}
+                        selectedImage={require('./tab/home/image/homepage_selected.png')}
                     />
                 )
             })
         },
         MyCenter: {
             //对应的屏幕
-            screen: MyCenterScreen,
+            screen: MyCenterTab,
             //用于屏幕的默认导航选项
             navigationOptions: ({navigation}) => ({
                 //选项卡名称
@@ -54,8 +54,8 @@ const Tab = TabNavigator(
                     <TabBarItem
                         tintColor={tintColor}
                         focused={focused}
-                        normalImage={require('../img/tabbar/mine.png')}
-                        selectedImage={require('../img/tabbar/mine_selected.png')}
+                        normalImage={require('./tab/home/image/mine.png')}
+                        selectedImage={require('./tab/home/image/mine_selected.png')}
                     />
                 )
             })
@@ -85,25 +85,25 @@ const Tab = TabNavigator(
 );
 
 //抽屉
-const DrawerScreenNavigator = DrawerNavigator(
+const DrawerPage = DrawerNavigator(
     {
-        DrawerHomePage: {screen: Tab},
+        DrawerPage: {screen: Tab},
     }
 );
 
 const Navigator = StackNavigator(
     {
         HomePage: {
-            screen: DrawerScreenNavigator,
+            screen: DrawerPage,
             //屏幕导航选项
-            navigationOptions:{
+            navigationOptions: {
                 //设置隐藏标题。HeaderProps null
                 header: null
             },
-            cardStyle:{
+            cardStyle: {
                 backgroundColor: color.background,
             }
         },
-        Detail: {screen: DetailScreen},
+        Detail: {screen: Detail},
     }
 );
