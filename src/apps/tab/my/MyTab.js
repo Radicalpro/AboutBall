@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import color from "../../Color";
-import {Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Dimensions, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 const {width, height} = Dimensions.get("window");
 
@@ -20,35 +20,41 @@ export default class MyCenterScreen extends Component {
                 <View style={styles.header}>
                     <View style={styles.headerImgView}>
                         <Image source={require('./image/header.jpg')} style={styles.headerImg}/>
-                        <Text style={styles.headerName}>亚瑟王</Text>
+                        <TouchableOpacity
+                            onPress={() => this._login()}>
+                            <Text style={styles.headerName}>亚瑟王</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.middle}>
-                    <ScrollView>
-                        <TouchableOpacity style={styles.itemSelect}>
-                            <Text style={styles.itemText}>基本信息</Text>
-                            <Image source={require('./image/right.png')} style={styles.itemImage}/>
-                        </TouchableOpacity>
-                        <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
-                        <TouchableOpacity style={styles.itemSelect}>
-                            <Text style={styles.itemText}>我的发布</Text>
-                            <Image source={require('./image/right.png')} style={styles.itemImage}/>
-                        </TouchableOpacity>
-                        <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
-                        <TouchableOpacity style={styles.itemSelect}>
-                            <Text style={styles.itemText}>我的预约</Text>
-                            <Image source={require('./image/right.png')} style={styles.itemImage}/>
-                        </TouchableOpacity>
-                        <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
-                        <TouchableOpacity style={styles.itemSelect}>
-                            <Text style={styles.itemText}>关于AboutBall</Text>
-                            <Image source={require('./image/right.png')} style={styles.itemImage}/>
-                        </TouchableOpacity>
-                        <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
-                    </ScrollView>
+                    <TouchableOpacity style={styles.itemSelect}>
+                        <Text style={styles.itemText}>基本信息</Text>
+                        <Image source={require('./image/right.png')} style={styles.itemImage}/>
+                    </TouchableOpacity>
+                    <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
+                    <TouchableOpacity style={styles.itemSelect}>
+                        <Text style={styles.itemText}>我的发布</Text>
+                        <Image source={require('./image/right.png')} style={styles.itemImage}/>
+                    </TouchableOpacity>
+                    <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
+                    <TouchableOpacity style={styles.itemSelect}>
+                        <Text style={styles.itemText}>我的预约</Text>
+                        <Image source={require('./image/right.png')} style={styles.itemImage}/>
+                    </TouchableOpacity>
+                    <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
+                    <TouchableOpacity style={styles.itemSelect}>
+                        <Text style={styles.itemText}>关于AboutBall</Text>
+                        <Image source={require('./image/right.png')} style={styles.itemImage}/>
+                    </TouchableOpacity>
+                    <View style={{width: width, height: 1, backgroundColor: color.theme1}}/>
                 </View>
             </View>
         )
+    }
+
+    _login(){
+        console.log('========+++>')
+        this.props.navigation.navigate('Login');
     }
 }
 
