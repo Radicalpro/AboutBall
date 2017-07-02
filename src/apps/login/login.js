@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import color from "../Color";
-import {Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View, AsyncStorage} from "react-native";
 
 const {width, height} = Dimensions.get("window");
 export default class Login extends Component {
@@ -33,7 +33,8 @@ export default class Login extends Component {
                            onChangeText={(password) => this.setState({password})}
                            value={this.state.password}/>
                 <View style={styles.bottom}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this._login()}>
                         <Text style={{color: '#fff', fontSize: 17}}>登录</Text>
                     </TouchableOpacity>
                 </View>
@@ -47,6 +48,20 @@ export default class Login extends Component {
                 </View>
             </View>
         )
+    }
+
+    async _login() {
+        let userName = this.state.userName;
+        let password = this.state.password;
+        if (userName === 'ty' && password === '123') {
+            this.props.navigation.goBack();
+            await AsyncStorage.setItem('AboutBall@userName', userName);
+        } else {
+            Alert.alert(
+                'Alert Title',
+                '用户名密码错误',
+            )
+        }
     }
 }
 
@@ -74,7 +89,7 @@ const styles = StyleSheet.create({
     textInput: {
         height: 40,
         width: width - 100,
-        borderWidth: 2,
+        borderWidth: 1,
         alignSelf: 'center',
         marginTop: 20,
         borderColor: color.theme1,
@@ -92,9 +107,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     quick: {
-        marginTop:10,
+        marginTop: 10,
         width: width - 100,
-        flexDirection:'row',
-        justifyContent:'space-between'
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     }
 });

@@ -11,19 +11,29 @@ export default class MyCenterScreen extends Component {
     // }
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            isLogin: false,
+        };
     }
 
     render() {
+
         return (
             <View style={styles.contain}>
                 <View style={styles.header}>
                     <View style={styles.headerImgView}>
                         <Image source={require('./image/header.jpg')} style={styles.headerImg}/>
-                        <TouchableOpacity
-                            onPress={() => this._login()}>
-                            <Text style={styles.headerName}>亚瑟王</Text>
-                        </TouchableOpacity>
+                        {
+                            this.state.isLogin ?
+                                <Text style={styles.headerName}>亚瑟王</Text>
+                                :
+                                <TouchableOpacity
+                                    onPress={() => this._login()}>
+                                    <Text style={styles.headerName}>登录/注册</Text>
+                                </TouchableOpacity>
+
+                        }
                     </View>
                 </View>
                 <View style={styles.middle}>
@@ -52,8 +62,8 @@ export default class MyCenterScreen extends Component {
         )
     }
 
-    _login(){
-        console.log('========+++>')
+    _login() {
+        console.log('========+++>');
         this.props.navigation.navigate('Login');
     }
 }
