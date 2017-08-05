@@ -1,23 +1,15 @@
 import React, {Component} from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-let current;
-export default class Detail extends Component {
+export default class ReduxDetail extends Component {
+
+	static navigationOptions = {
+		title: 'redux写法',
+	}
 
 	constructor(props) {
 		super(props);
-		current = this;
 		this.state = {count: 5}
-	}
-
-	static navigationOptions = {
-		title: '原生写法',
-		headerRight: (
-			<TouchableOpacity
-				onPress={() => current.props.navigation.navigate('ReduxDetail')}>
-				<Text>redux写法</Text>
-			</TouchableOpacity>
-		),
 	}
 
 	_onPressReset() {
