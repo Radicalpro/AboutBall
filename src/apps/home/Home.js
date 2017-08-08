@@ -13,13 +13,13 @@ export default class Home extends Component {
 				<View style={styles.contain1}>
 				</View>
 				<View style={styles.contain2}>
+					<Button
+						onPress={() => this.props.navigation.navigate('Detail', {user: 'ty'})}
+						title="TO Detail"
+					/>
 				</View>
 				<View style={styles.contain3}>
 				</View>
-				<Button
-					onPress={() => this.props.navigation.navigate('Detail', {user: 'ty'})}
-					title="TO Detail"
-				/>
 			</View>
 		)
 	}
@@ -39,9 +39,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-start'
 	},
 	contain2: {
-		width: 50,
-		height: 50,
-		backgroundColor: 'green',
+		backgroundColor: 'yellow',
 	},
 	contain3: {
 		width: 50,

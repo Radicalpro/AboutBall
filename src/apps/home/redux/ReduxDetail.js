@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
 	counter: state.counter
-})
+});
 
 export default connect(mapStateToProps)(ReduxDetail);
