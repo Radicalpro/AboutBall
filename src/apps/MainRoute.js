@@ -3,8 +3,8 @@ import HomeTab from "./tab/home/HomeTab";
 import MyCenterTab from "./tab/my/MyTab";
 import TabBarItem from "./tab/component/TabBarItem";
 import Login from "./login/login";
-import Detail from "./home/Detail";
-import ReduxDetail from "./home/ReduxDetail";
+import Detail from "./home/native/Detail";
+import ReduxDetail from "./home/redux/ReduxDetail";
 import color from "./Color";
 import {DrawerNavigator, StackNavigator, TabBarBottom, TabNavigator} from "react-navigation";
 
@@ -108,7 +108,6 @@ const Navigator = StackNavigator(
 		},
 		Detail: {
 			screen: Detail,
-			navigationOptions: ({navigation})=>{}
 		},
 		ReduxDetail: {screen: ReduxDetail},
 		Login: {

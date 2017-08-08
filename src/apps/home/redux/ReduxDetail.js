@@ -1,33 +1,25 @@
-import React, {Component} from "react";
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import React, {Component} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {connect} from 'react-redux';
+import {decrease, increase, reset} from '../../../redux/actions';
 
-export default class ReduxDetail extends Component {
-
-	static navigationOptions = {
-		title: 'redux写法',
-	}
-
-	constructor(props) {
-		super(props);
-		this.state = {count: 5}
-	}
-
+class ReduxDetail extends Component {
 	_onPressReset() {
-		this.setState({count: 0})
+		this.props.dispatch(reset());
 	}
 
 	_onPressInc() {
-		this.setState({count: this.state.count + 1});
+		this.props.dispatch(increase());
 	}
 
 	_onPressDec() {
-		this.setState({count: this.state.count - 1});
+		this.props.dispatch(decrease());
 	}
 
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.counter}>{this.state.count}</Text>
+				<Text style={styles.counter}>{this.props.counter.count}</Text>
 				<TouchableOpacity style={styles.reset} onPress={() => this._onPressReset()}>
 					<Text>归零</Text>
 				</TouchableOpacity>
@@ -66,3 +58,9 @@ const styles = StyleSheet.create({
 		backgroundColor: 'yellow'
 	}
 });
+
+const mapStateToProps = state => ({
+	counter: state.counter
+})
+
+export default connect(mapStateToProps)(ReduxDetail);

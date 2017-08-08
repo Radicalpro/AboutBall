@@ -1,13 +1,4 @@
-import React, {Component} from "react";
 import {AppRegistry} from "react-native";
-import MainRoute from "./src/apps/MainRoute";
+import App from "./src/app";
 
-export default class AboutBall extends Component {
-    render() {
-        return (
-            <MainRoute/>
-        );
-    }
-}
-
-AppRegistry.registerComponent('AboutBall', () => AboutBall);
+AppRegistry.registerComponent('AboutBall', () => App);
